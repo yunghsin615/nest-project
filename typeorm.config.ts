@@ -7,7 +7,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   username: process.env.DATABASE_USERNAME || 'root',
   password: process.env.DATABASE_PASSWORD || 'Kaydence880615',
   database: process.env.DATABASE_NAME || 'mydb',
-  entities: ['dist/**/output/entities/*{.ts,.js}'],
+  entities: ['dist/**/typeorm-model/*{.ts,.js}'],
   extra: {
     connectionLimit: 10,
   },
