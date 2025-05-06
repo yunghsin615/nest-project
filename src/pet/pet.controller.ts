@@ -8,6 +8,7 @@ import {
 } from '@nestjs/common';
 import { PetService } from './pet.service';
 import { Pet } from 'typeorm-model/Pet';
+import { CreatePetRequest } from './pet.dto';
 
 @Controller('pet')
 export class PetController {
@@ -29,7 +30,7 @@ export class PetController {
   }
 
   @Post('create')
-  createPet(@Body() data: Partial<Pet>) {
+  createPet(@Body() data: CreatePetRequest) {
     return this.petService.create(data);
   }
 
