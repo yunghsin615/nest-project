@@ -1,54 +1,40 @@
-import {
-  IsBoolean,
-  IsDate,
-  IsInt,
-  IsNotEmpty,
-  IsPositive,
-  IsString,
-  Matches,
-  Min,
-} from 'class-validator';
+import { ValidateFromEntity } from 'src/base/validation/validate-from-entity.decorators';
+import { Pet } from 'typeorm-model/Pet';
 
 export class CreatePetRequest {
-  @IsNotEmpty({ message: '此欄位必填' })
-  @IsString({ message: '必須是字串' })
+  @ValidateFromEntity(Pet)
   name: string;
 
-  @IsString({ message: '必須是字串' })
+  @ValidateFromEntity(Pet)
   breed: string;
 
-  @IsNotEmpty({ message: '此欄位必填' })
-  @Matches(/^[MF]$/, { message: '必須是 M 或 F' })
+  @ValidateFromEntity(Pet)
   gender: 'M' | 'F';
 
-  @IsString({ message: '必須是字串' })
+  @ValidateFromEntity(Pet)
   color: string;
 
-  @Matches(/^(Small|Medium|Large)$/, {
-    message: '必須是 Small、Medium 或 Large',
-  })
+  @ValidateFromEntity(Pet)
   size: 'Small' | 'Medium' | 'Large';
 
-  @IsInt({ message: '必須是數值' })
-  @IsPositive({ message: '必須是大於0的數值' })
+  @ValidateFromEntity(Pet)
   height: string;
 
-  @IsInt({ message: '必須是數值' })
-  @IsPositive({ message: '必須是大於0的數值' })
+  @ValidateFromEntity(Pet)
   weight: string;
 
-  @IsString({ message: '必須是字串' })
+  @ValidateFromEntity(Pet)
   temperament: string;
 
-  @IsBoolean({ message: '必須為是或否' })
+  @ValidateFromEntity(Pet)
   vaccinated: boolean;
 
-  @IsDate({ message: '必須為日期' })
+  @ValidateFromEntity(Pet)
   birth_date: Date;
 
-  @IsDate({ message: '必須為日期' })
+  @ValidateFromEntity(Pet)
   adopted_date: Date;
 
-  @IsInt({ message: '必須是數值' })
+  @ValidateFromEntity(Pet)
   owner_id: number;
 }
