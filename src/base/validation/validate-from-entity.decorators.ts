@@ -22,8 +22,11 @@ export function ValidateFromEntity(entity: Function, property?: string) {
     const options: ColumnOptions = columns[0].options;
     const decorators: PropertyDecorator[] = [];
 
-    if (options.nullable) decorators.push(IsOptional());
-    else decorators.push(IsNotEmpty());
+    if (options.nullable) {
+      decorators.push(IsOptional());
+    } else {
+      decorators.push(IsNotEmpty());
+    }
     if (options.type === 'tinyint') decorators.push(IsBoolean());
     if (options.type === 'varchar') decorators.push(IsString());
     if (options.type === 'int' || options.type === 'decimal')
@@ -35,7 +38,6 @@ export function ValidateFromEntity(entity: Function, property?: string) {
     if (options.type === 'enum') {
       // 要轉成正規式
       const columnEnum = enumToRegExp(options.enum);
-      console.log('columnEnum', columnEnum);
       decorators.push(Matches(columnEnum));
     }
 
