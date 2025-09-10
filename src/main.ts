@@ -6,6 +6,8 @@ import { setupSwagger } from './base/swagger/config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.setGlobalPrefix('webapi');
+
   // HERE
   app.useGlobalPipes(dtoValidationPipe);
 

@@ -1,0 +1,229 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/webapi": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/webapi/getCurrentTime": {
+      "get": {
+        "operationId": "AppController_getCurrentTime",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "App"
+        ]
+      }
+    },
+    "/webapi/pet": {
+      "get": {
+        "operationId": "PetController_getCurrentTime",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pet"
+        ]
+      }
+    },
+    "/webapi/pet/list": {
+      "post": {
+        "operationId": "PetController_findAllPet",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pet"
+        ]
+      }
+    },
+    "/webapi/pet/{id}": {
+      "get": {
+        "operationId": "PetController_findOnePet",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pet"
+        ]
+      }
+    },
+    "/webapi/pet/create": {
+      "post": {
+        "operationId": "PetController_createPet",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePetRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pet"
+        ]
+      }
+    },
+    "/webapi/pet/update": {
+      "post": {
+        "operationId": "PetController_updatePet",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pet"
+        ]
+      }
+    },
+    "/webapi/pet/delete": {
+      "post": {
+        "operationId": "PetController_deletePet",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pet"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Pet API",
+    "description": "- ### This is Pet API        \n- ### [swagger.json](/swagger.json)        \n- ### Have Fun!!🚀",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreatePetRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "柴寶",
+            "description": "pet name"
+          },
+          "breed": {
+            "type": "string",
+            "example": "柴犬",
+            "description": "pet breed"
+          },
+          "gender": {
+            "type": "string",
+            "example": "M",
+            "description": "male | female"
+          },
+          "color": {
+            "type": "string",
+            "example": "棕色",
+            "description": "pet color"
+          },
+          "size": {
+            "type": "string",
+            "example": "Medium",
+            "description": "Small | Medium | Large"
+          },
+          "height": {
+            "type": "string",
+            "example": "50",
+            "description": "pet height(cm)"
+          },
+          "weight": {
+            "type": "string",
+            "example": "8",
+            "description": "pet height(kg)"
+          },
+          "temperament": {
+            "type": "string",
+            "example": "weird",
+            "description": "pet temperament"
+          },
+          "vaccinated": {
+            "type": "boolean",
+            "example": "1",
+            "description": "is pet vaccinated"
+          },
+          "birth_date": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2021-03-23",
+            "description": "pet's birthday"
+          },
+          "adopted_date": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2021-03-23",
+            "description": "pet's adoptedday"
+          },
+          "owner_id": {
+            "type": "number",
+            "example": "0001",
+            "description": ""
+          }
+        },
+        "required": [
+          "name",
+          "breed",
+          "gender",
+          "color",
+          "size",
+          "height",
+          "weight",
+          "temperament",
+          "vaccinated",
+          "birth_date",
+          "adopted_date",
+          "owner_id"
+        ]
+      }
+    }
+  }
+}
